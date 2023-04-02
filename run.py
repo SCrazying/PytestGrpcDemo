@@ -7,6 +7,7 @@ from protobuf import IM_pb2_grpc
 
 from grpcserver import testserver
 from common import logger
+from common.common_client import Common_Client
 
 
 def find_protos(path):
@@ -31,11 +32,26 @@ if __name__ == '__main__':
     proto2grpc(file_name_list)
     
     # 启动grpcserver
-    testserver.Serve();   
+  
+      # 启动grpcserver
+    testserver.ServeThread();   
     # 测试grpc 连通性
-    testserver.Client()
-    
+    # testserver.Client()
+    # 测试Common_Client
+
+    # testnum = 1000
+    # while testnum > 0:
+        
+    #     rep = Common_Client().Connect().RunTest(IM_pb2.RunTestRequest(testname="Test", testnum=123))
+    #     print(rep)
+    #     # Common_Client().DisConnect()
+    #     rep = Common_Client().Connect().RunTest(IM_pb2.RunTestRequest(testname="Test", testnum=123))
+    #     print(rep)
+    #     testnum = testnum - 1
+
     pytest.main()
     
-    
+    #testserver.ServeThread()退出测试的rpcserver
+    testserver.StopServeThread()
+
     logger.LOG_DEBUG("test end!!!");
