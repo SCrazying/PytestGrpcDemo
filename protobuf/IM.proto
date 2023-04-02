@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package IM.V1;
+
+service IMServer { rpc RunTest(RunTestRequest) returns (RunTestResponse); }
+
+message RunTestRequest {
+  string testname = 1;
+  int32 testnum = 2;
+}
+
+message RunTestResponse { 
+    bool results = 1; 
+}
