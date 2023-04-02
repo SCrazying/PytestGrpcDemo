@@ -1,0 +1,6 @@
+pytest==7.2.2
+allure-pytest==2.13.1
+grpcio==1.53.0
+grpcio.tools==1.53.0
+pytest-grpc==0.8.0
+PyYAML==6.0
