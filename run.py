@@ -6,6 +6,7 @@ from protobuf import IM_pb2
 from protobuf import IM_pb2_grpc
 
 from grpcserver import testserver
+from common import logger
 
 
 def find_protos(path):
@@ -23,7 +24,8 @@ def proto2grpc(file_name_list):
    
 
         
-if __name__ == '__main__':    
+if __name__ == '__main__':   
+    logger.LOG_DEBUG("test start!!!");
     # 生成对应的grpc 服务文件
     file_name_list = find_protos("./protobuf")
     proto2grpc(file_name_list)
@@ -34,3 +36,6 @@ if __name__ == '__main__':
     testserver.Client()
     
     pytest.main()
+    
+    
+    logger.LOG_DEBUG("test end!!!");
